@@ -131,6 +131,9 @@ class SemihostIOHandler:
                 LOG.warning("Unrecognized semihosting console open file combination: mode=%s", mode)
                 return -1, filename
             return fd, filename
+        # Semihosting features file, not currently supported.
+        elif filename == ':semihosting-features':
+            pass
         return None, filename
 
     def open(self, fnptr: int, fnlen: int, mode: str) -> int:
