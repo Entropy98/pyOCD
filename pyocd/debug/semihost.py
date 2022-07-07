@@ -586,6 +586,13 @@ class SemihostAgent:
         return self.io_handler.flen(fd)
 
     def handle_sys_tmpnam(self, args: int) -> int:
+        """@brief Handler for SYS_TMPNAM.
+
+        The argument block pointed to by r1 contains 3 words:
+        1. Buffer pointer.
+        2. Target identifier for the filename, ab 8-bit int (stored in a word).
+        3. Length of the buffer.
+        """
         raise NotImplementedError()
 
     def handle_sys_remove(self, args: int) -> int:
